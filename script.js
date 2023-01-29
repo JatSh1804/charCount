@@ -2,7 +2,7 @@ var count = 0;
 document.addEventListener("keyup", function (event) {
     // console.log(event)
     count++;
-    if (event.key === "Backspace") {
+    if (event.key === "Backspace" && count>1) {
         count = count - 2;
     }
     if (event.key === "Control" || event.key === "Shift") {
@@ -18,25 +18,16 @@ document.addEventListener("keyup", function (event) {
         document.querySelector(".char-count").innerHTML = count;
         document.querySelector(".remain-char").innerHTML = 50 - count;
     }
+})
+document.querySelector("input").addEventListener("click",function(){
+    if(document.querySelector("input").checked){
+        document.querySelector("body").style.backgroundColor= "#000" ;
+        document.querySelector("h3").style.color="black";
+        
+    }
+    else{
+        document.querySelector("body").style.backgroundColor= "rgb(156, 156, 207)" ;
+        document.querySelector("h3").style.color="grey";
 
-
-
-
-
-
-
-
-
-
-    // count++;
-    // document.querySelector(".char-count").innerHTML = count;
-
-    // if (event.key === "Backspace" || event.key === "Delete") {
-    //     count--;
-    // }
-
-    // document.querySelector(".remain-char").innerHTML = 50 - count;
-    // if (50-count<0) {
-    //     document.querySelector(".remain-char").innerHTML = 0;
-}
-)
+    }
+})
